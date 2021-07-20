@@ -1,8 +1,11 @@
 #include <iostream>
 using std::string;
 
-class Employee
-{
+class AbstractEmployee {
+  virtual void AskForPromotion() = 0;
+};
+
+class Employee:AbstractEmployee {
 private:
   string Name;
   string Company;
@@ -46,12 +49,26 @@ public:
     Company = company;
     Age = age;
   }
+
+  void AskForPromotion() {
+    if (Age > 30) {
+      std::cout << Name << " got promoted!" << std::endl;
+    } else {
+      std::cout << "Sorry you scrub" << std::endl;
+    }
+  }
 };
 
 int main()
 {
   Employee employee1 = Employee("Wincent", "Shopee", 25);
   employee1.IntroduceYourself();
+  employee1.AskForPromotion();
+  
+  Employee employee2 = Employee("John", "Shopee", 35);
+  employee2.IntroduceYourself();
+  employee2.AskForPromotion();
+
 
   employee1.setAge(39);
   std::cout << employee1.getName() << " is " << employee1.getAge() << " years old" << std::endl;
