@@ -14,19 +14,17 @@ public:
     std::cout << "Company - " << Company << std::endl;
     std::cout << "Age - " << Age << std::endl;
   }
+
+  Employee(string name, string company, int age)
+  {
+    Name = name;
+    Company = company;
+    Age = age;
+  }
 };
 
 int main()
 {
-  Employee employee1;
-  employee1.Name = "Wincent";
-  employee1.Company = "Shopee";
-  employee1.Age = 25;
+  Employee employee1 = Employee("Wincent", "Shopee", 25);
   employee1.IntroduceYourself();
-
-  Employee employee2;
-  employee2.Name = "John";
-  employee2.Company = "AWS";
-  employee2.Age = 35;
-  employee2.IntroduceYourself();
 }
